@@ -1,0 +1,28 @@
+<section class="hero">
+  <div class="hero-content">
+    <h1>Thoughtful Hampers for Every Occasion</h1>
+    <p>Handpicked gifts for celebrations, festivals, and everyday moments.</p>
+    <a routerLink="/products" class="cta-button">Shop Now</a>
+  </div>
+</section>
+
+<section class="category-shortcuts">
+  <h2>Shop by Category</h2>
+  <div class="category-grid">
+    @for (cat of categoryShortcuts(); track cat.name) {
+      <a [routerLink]="['/products']" [queryParams]="{ category: cat.name }" class="category-tile">
+        <img [src]="cat.image" [alt]="cat.name" />
+        <span>{{ cat.name }}</span>
+      </a>
+    }
+  </div>
+</section>
+
+<section class="featured">
+  <h2>Bestsellers</h2>
+  <div class="featured-grid">
+    @for (product of featuredProducts(); track product.id) {
+      <app-product-card [product]="product" />
+    }
+  </div>
+</section>

@@ -1,0 +1,5 @@
+<div class="quantity-stepper">
+  <button (click)="decrease()" [disabled]="quantity() <= min()">−</button>
+  <span>{{ quantity() }}</span>
+  <button (click)="increase()" [disabled]="quantity() >= max()">+</button>
+</div>

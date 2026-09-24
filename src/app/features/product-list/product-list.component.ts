@@ -1,0 +1,37 @@
+import { ChangeDetectionStrategy, Component, DestroyRef, inject, OnInit, signal } from "@angular/core";
+import { ProductStore } from "../../core/stores/product.store";
+import { ProductCardComponent } from "../product-card/product-card.component";
+import { ProductSortComponent } from "../catalog/product-sort/product-sort.component";
+import { ProductFiltersComponent } from "../catalog/product-filters/product-filters.component";
+import { debounceTime, distinctUntilChanged, Subject, switchMap } from "rxjs";
+import { takeUntilDestroyed } from "@angular/core/rxjs-interop";
+import { SearchBoxComponent } from "../../shared/components/search-box/search-box.component";
+import { ActivatedRoute } from "@angular/router";
+
+@Component({
+    selector: 'app-product-list',
+    templateUrl: './product-list.component.html',
+    styleUrl: './product-list.component.scss',
+    standalone: true,
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    imports: [ProductCardComponent, ProductFiltersComponent, ProductSortComponent, SearchBoxComponent]
+})
+
+export class ProductListComponent implements OnInit {
+
+    productStore = inject(ProductStore);
+    products = this.productStore.filteredProducts;
+    private route = inject(ActivatedRoute);
+
+    ngOnInit(): void {
+        this.productStore.loadProducts();
+        const categoryFromUrl = this.route.snapshot.queryParamMap.get('category');
+        if (categoryFromUrl) {
+            this.productStore.selectedCategory.set(categoryFromUrl);
+        }
+    }
+
+    onRefreshClick() {
+        this.productStore.loadProducts(true); // force fresh fetch
+    }
+}

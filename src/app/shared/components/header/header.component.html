@@ -1,0 +1,15 @@
+<header class="app-header">
+  <a routerLink="/" class="logo">🎁 HamperCo</a>
+
+  <nav class="nav-links">
+    <a routerLink="/products" routerLinkActive="active">All Products</a>
+    <a routerLink="/wishlist" routerLinkActive="active">Wishlist</a>
+  </nav>
+
+  <a routerLink="/cart" class="cart-link">
+    🛒 Cart
+    <!-- @if (cartStore.itemCount() > 0) { -->
+      <span class="cart-badge">{{ cartStore.itemCount() }}</span>
+    <!-- } -->
+  </a>
+</header>

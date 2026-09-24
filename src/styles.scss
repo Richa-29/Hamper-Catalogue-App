@@ -1,0 +1,57 @@
+:root {
+  // Colors
+  --color-primary: #d4a574;        // warm gold/bronze accent
+  --color-primary-dark: #b8925f;
+  --color-primary-light: #2a2520;  // subtle gold-tinted dark surface
+
+  --color-text: #f0ede8;           // off-white text
+  --color-text-muted: #a8a29a;     // muted grey text
+  --color-border: #333029;         // subtle dark border
+
+  --color-bg: #0f0e0c;             // deep near-black background
+  --color-bg-elevated: #1a1815;    // card/surface background
+  --color-bg-subtle: #141210;      // slightly lifted base
+
+  --color-success: #6b9b6e;
+  --color-danger: #c66;
+
+  // Typography
+  --font-heading: 'Playfair Display', Georgia, serif;
+  --font-body: 'Inter', -apple-system, sans-serif;
+
+  // Spacing scale
+  --space-xs: 4px;
+  --space-sm: 8px;
+  --space-md: 16px;
+  --space-lg: 24px;
+  --space-xl: 40px;
+  --space-2xl: 64px;
+
+  // Radius & shadow
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.3);
+  --shadow-md: 0 4px 20px rgba(0,0,0,0.4);
+  --shadow-lg: 0 16px 40px rgba(0,0,0,0.5);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-body);
+  color: var(--color-text);
+  margin: 0;
+  background: var(--color-bg);
+}
+
+h1, h2, h3 {
+  font-family: var(--font-heading);
+  letter-spacing: 0.3px;
+}
+
+a {
+  color: inherit;
+}

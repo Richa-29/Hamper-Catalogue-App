@@ -1,0 +1,11 @@
+@if (wishlistedProducts().length === 0) {
+  <div class="empty-state">
+    <p>Your wishlist is empty.</p>
+  </div>
+} @else {
+  <div class="wishlist-grid">
+    @for (product of wishlistedProducts(); track product.id) {
+      <app-product-card [product]="product" />
+    }
+  </div>
+}

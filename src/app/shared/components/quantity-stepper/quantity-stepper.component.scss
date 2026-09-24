@@ -1,0 +1,39 @@
+.quantity-stepper {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  padding: 4px 8px;
+
+  button {
+    width: 24px;
+    height: 24px;
+    border: none;
+    background: transparent;
+    color: var(--color-text);
+    font-size: 16px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+
+    &:hover:not(:disabled) {
+      background: var(--color-primary);
+      color: var(--color-bg);
+    }
+
+    &:disabled {
+      opacity: 0.3;
+      cursor: not-allowed;
+    }
+  }
+
+  span {
+    flex: 1;
+    text-align: center;
+    font-size: 14px;
+    color: var(--color-text);
+  }
+}

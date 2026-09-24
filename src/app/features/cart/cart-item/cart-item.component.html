@@ -1,0 +1,18 @@
+<div class="cart-item">
+  <img [src]="item().product.images[0]" [alt]="item().product.name" />
+
+  <div class="item-details">
+    <h4>{{ item().product.name }}</h4>
+    <p class="item-price">₹{{ item().product.price }}</p>
+  </div>
+
+  <app-quantity-stepper 
+      [quantity]="item().quantity" 
+      [min]="0"
+      (quantityChange)="onQuantityChange($event)" 
+    />
+
+  <p class="item-total">₹{{ item().product.price * item().quantity }}</p>
+
+  <button class="remove-btn" (click)="onRemove()">🗑</button>
+</div>

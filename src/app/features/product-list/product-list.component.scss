@@ -1,0 +1,20 @@
+.listing-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: var(--space-xl) var(--space-2xl);
+}
+
+.toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--space-lg);
+  margin-bottom: var(--space-xl);
+  flex-wrap: wrap;
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: var(--space-lg);
+}

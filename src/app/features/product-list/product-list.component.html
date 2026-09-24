@@ -1,0 +1,19 @@
+<div class="listing-container">
+  <div class="toolbar">
+    <app-product-filters />
+    <app-search-box />
+    <app-product-sort />
+  </div>
+
+  @if (productStore.isLoading()) {
+    <p>Loading hampers...</p>
+  } @else if (productStore.error()) {
+    <p class="error">{{ productStore.error() }}</p>
+  } @else {
+    <div class="product-grid">
+      @for (product of products(); track product.id) {
+        <app-product-card [product]="product" />
+      }
+    </div>
+  }
+</div>

@@ -1,0 +1,22 @@
+:host {
+  display: block;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: var(--space-xl) var(--space-2xl);
+}
+
+.empty-state {
+  text-align: center;
+  padding: var(--space-2xl) 0;
+
+  p {
+    color: var(--color-text-muted);
+    font-size: 16px;
+  }
+}
+
+.wishlist-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: var(--space-lg);
+}

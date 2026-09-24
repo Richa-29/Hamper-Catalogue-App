@@ -1,0 +1,9 @@
+<div class="filter-bar">
+  @for (cat of categories(); track cat) {
+    <button 
+      [class.active]="productStore.selectedCategory() === cat"
+      (click)="selectCategory(cat)">
+      {{ cat === 'all' ? 'All' : cat }}
+    </button>
+  }
+</div>
