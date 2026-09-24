@@ -2,7 +2,8 @@
 
 A full-featured e-commerce catalogue app built with Angular, showcasing signals-based, state management, standalone components, and modern Angular patterns.
 
-<!-- ## Live Demo -->
+## Live Demo
+https://hamper-catalogue-app.vercel.app/
 
 ## Features
 - Product catalogue with search, category filtering, and sorting
