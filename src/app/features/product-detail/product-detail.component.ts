@@ -5,11 +5,13 @@ import { map } from 'rxjs';
 import { ProductStore } from '../../core/stores/product.store';
 import { CartStore } from '../../core/stores/cart.store';
 import { QuantityStepperComponent } from '../../shared/components/quantity-stepper/quantity-stepper.component';
+import { RelatedProductsComponent } from './related-products/related-products.component';
+import { LoadingSkeletonComponent } from '../../shared/components/loading-skeleton/loading-skeleton.component';
 
 @Component({
   selector: 'app-product-detail',
   standalone: true,
-  imports: [QuantityStepperComponent],
+  imports: [QuantityStepperComponent, RelatedProductsComponent, LoadingSkeletonComponent],
   templateUrl: './product-detail.component.html',
   styleUrl: './product-detail.component.scss',
   changeDetection: ChangeDetectionStrategy.OnPush

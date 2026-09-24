@@ -90,4 +90,12 @@ export class ProductStore {
     getProductById(id: number) {
         return computed(() => this._products().find(p => p.id === id));
     }
+
+    getRelatedProducts(currentProductId: number, category: string) {
+        return computed(() =>
+            this._products()
+            .filter(p => p.category === category && p.id !== currentProductId)
+            .slice(0, 4)
+        );
+    }
 }

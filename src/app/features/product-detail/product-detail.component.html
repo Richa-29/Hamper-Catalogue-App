@@ -48,7 +48,16 @@
           }
         </div>
       </div>
+
     </div>
+
+     @defer (on viewport) {
+      <app-related-products [currentProductId]="p.id" [category]="p.category" />
+     } @placeholder {
+        <div class="related-placeholder"></div>
+     } @loading {
+        <app-loading-skeleton [count]="4" />
+     }
   </div>
 } @else {
   <p class="not-found">Product not found.</p>

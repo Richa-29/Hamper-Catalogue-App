@@ -1,0 +1,10 @@
+@if (relatedProducts().length > 0) {
+  <section class="related-section">
+    <h2>You Might Also Like</h2>
+    <div class="related-grid">
+      @for (product of relatedProducts(); track product.id) {
+        <app-product-card [product]="product" />
+      }
+    </div>
+  </section>
+}
