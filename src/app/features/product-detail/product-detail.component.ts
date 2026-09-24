@@ -1,4 +1,4 @@
-import { Component, inject, computed, ChangeDetectionStrategy, OnInit } from '@angular/core';
+import { Component, inject, computed, ChangeDetectionStrategy, OnInit, signal, effect } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { map } from 'rxjs';
@@ -19,11 +19,24 @@ export class ProductDetailComponent implements OnInit {
   private productStore = inject(ProductStore);
   private cartStore = inject(CartStore);
 
+  selectedImageIndex = signal(0);
+
+  selectImage(index: number) {
+    this.selectedImageIndex.set(index);
+  }
+
   private productId = toSignal(
     this.route.paramMap.pipe(map(params => Number(params.get('id'))))
   );
 
-   ngOnInit() {
+  constructor() {
+      effect(() => {
+        this.product();
+        this.selectedImageIndex.set(0);
+      });
+  }
+
+  ngOnInit() {
     this.productStore.loadProducts();
   }
 

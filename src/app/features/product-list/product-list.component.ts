@@ -3,10 +3,9 @@ import { ProductStore } from "../../core/stores/product.store";
 import { ProductCardComponent } from "../product-card/product-card.component";
 import { ProductSortComponent } from "../catalog/product-sort/product-sort.component";
 import { ProductFiltersComponent } from "../catalog/product-filters/product-filters.component";
-import { debounceTime, distinctUntilChanged, Subject, switchMap } from "rxjs";
-import { takeUntilDestroyed } from "@angular/core/rxjs-interop";
 import { SearchBoxComponent } from "../../shared/components/search-box/search-box.component";
 import { ActivatedRoute } from "@angular/router";
+import { LoadingSkeletonComponent } from "../../shared/components/loading-skeleton/loading-skeleton.component";
 
 @Component({
     selector: 'app-product-list',
@@ -14,7 +13,7 @@ import { ActivatedRoute } from "@angular/router";
     styleUrl: './product-list.component.scss',
     standalone: true,
     changeDetection: ChangeDetectionStrategy.OnPush,
-    imports: [ProductCardComponent, ProductFiltersComponent, ProductSortComponent, SearchBoxComponent]
+    imports: [ProductCardComponent, ProductFiltersComponent, ProductSortComponent, SearchBoxComponent, LoadingSkeletonComponent]
 })
 
 export class ProductListComponent implements OnInit {

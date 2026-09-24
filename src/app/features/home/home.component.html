@@ -20,9 +20,13 @@
 
 <section class="featured">
   <h2>Bestsellers</h2>
-  <div class="featured-grid">
-    @for (product of featuredProducts(); track product.id) {
-      <app-product-card [product]="product" />
-    }
-  </div>
+  @if (productStore.isLoading()) {
+    <app-loading-skeleton [count]="4" />
+  } @else {
+    <div class="featured-grid">
+      @for (product of featuredProducts(); track product.id) {
+        <app-product-card [product]="product" />
+      }
+    </div>
+  }
 </section>

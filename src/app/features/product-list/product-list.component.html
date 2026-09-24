@@ -6,7 +6,7 @@
   </div>
 
   @if (productStore.isLoading()) {
-    <p>Loading hampers...</p>
+    <app-loading-skeleton [count]="8" />
   } @else if (productStore.error()) {
     <p class="error">{{ productStore.error() }}</p>
   } @else {
