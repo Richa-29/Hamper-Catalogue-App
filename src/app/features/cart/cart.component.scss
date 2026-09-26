@@ -29,7 +29,6 @@
   display: grid;
   grid-template-columns: 1fr 340px;
   gap: var(--space-xl);
-  align-items: start;
 
   @media (max-width: 768px) {
     grid-template-columns: 1fr;

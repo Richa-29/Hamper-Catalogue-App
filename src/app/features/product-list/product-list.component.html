@@ -1,8 +1,13 @@
-<div class="listing-container">
+<div class="listing-container" appPullToRefresh (refresh)="onRefresh()">
   <div class="toolbar">
     <app-product-filters />
     <app-search-box />
-    <app-product-sort />
+    <div class="toolbar-right">
+      <button class="refresh-btn" (click)="onRefresh()" [disabled]="productStore.isLoading()">
+        <span [class.spinning]="productStore.isLoading()">🔄</span>
+      </button>
+      <app-product-sort />
+    </div>
   </div>
 
   @if (productStore.isLoading()) {

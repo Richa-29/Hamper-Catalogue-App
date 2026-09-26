@@ -6,6 +6,7 @@ import { ProductFiltersComponent } from "../catalog/product-filters/product-filt
 import { SearchBoxComponent } from "../../shared/components/search-box/search-box.component";
 import { ActivatedRoute } from "@angular/router";
 import { LoadingSkeletonComponent } from "../../shared/components/loading-skeleton/loading-skeleton.component";
+import { PullToRefreshDirective } from "../../shared/directives/pull-to-refresh.component";
 
 @Component({
     selector: 'app-product-list',
@@ -13,7 +14,7 @@ import { LoadingSkeletonComponent } from "../../shared/components/loading-skelet
     styleUrl: './product-list.component.scss',
     standalone: true,
     changeDetection: ChangeDetectionStrategy.OnPush,
-    imports: [ProductCardComponent, ProductFiltersComponent, ProductSortComponent, SearchBoxComponent, LoadingSkeletonComponent]
+    imports: [ProductCardComponent, ProductFiltersComponent, ProductSortComponent, SearchBoxComponent, LoadingSkeletonComponent, PullToRefreshDirective ]
 })
 
 export class ProductListComponent implements OnInit {
@@ -30,7 +31,7 @@ export class ProductListComponent implements OnInit {
         }
     }
 
-    onRefreshClick() {
-        this.productStore.loadProducts(true); // force fresh fetch
+    onRefresh() {
+        this.productStore.loadProducts(true);
     }
 }
