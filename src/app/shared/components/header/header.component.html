@@ -12,4 +12,13 @@
       <span class="cart-badge">{{ cartStore.itemCount() }}</span>
     <!-- } -->
   </a>
+
+  @if (authStore.isLoggedIn()) {
+    <div class="user-menu">
+      <span>{{ authStore.currentUser()?.name }}</span>
+      <button (click)="onLogout()">Logout</button>
+    </div>
+  } @else {
+    <a routerLink="/login" class="login-link">Login</a>
+  }
 </header>

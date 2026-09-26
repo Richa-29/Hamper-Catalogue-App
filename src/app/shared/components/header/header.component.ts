@@ -1,6 +1,7 @@
 import { Component, ChangeDetectionStrategy, inject } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 import { CartStore } from '../../../core/stores/cart.store';
+import { AuthStore } from '../../../core/stores/auth.store';
 
 @Component({
   selector: 'app-header',
@@ -12,4 +13,9 @@ import { CartStore } from '../../../core/stores/cart.store';
 })
 export class HeaderComponent {
    cartStore = inject(CartStore);
+   authStore = inject(AuthStore);
+
+   onLogout() {
+    this.authStore.logout();
+  }
 }

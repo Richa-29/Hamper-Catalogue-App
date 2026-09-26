@@ -4,6 +4,7 @@ import { CartStore } from "../../core/stores/cart.store";
 import { QuantityStepperComponent } from "../../shared/components/quantity-stepper/quantity-stepper.component";
 import { Router } from "@angular/router";
 import { WishlistStore } from "../../core/stores/wishlist.store";
+import { AuthStore } from "../../core/stores/auth.store";
 
 @Component({
     selector: 'app-product-card',
@@ -19,6 +20,7 @@ export class ProductCardComponent {
     private cartStore = inject(CartStore);
     private router = inject(Router);
     private wishlistStore = inject(WishlistStore);
+    private authStore = inject(AuthStore);
 
     cartItem = computed(() =>
         this.cartStore.items().find(item => item.product.id === this.product().id)
@@ -33,6 +35,10 @@ export class ProductCardComponent {
 
     onAddToCart(event: Event) {
         event.stopPropagation();
+        if (!this.authStore.isLoggedIn()) {
+            this.router.navigate(['/login']);
+            return;
+        }
         this.cartStore.addToCart(this.product());
     }
 
