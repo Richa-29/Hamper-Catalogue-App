@@ -6,19 +6,21 @@
     <a routerLink="/wishlist" routerLinkActive="active">Wishlist</a>
   </nav>
 
-  <a routerLink="/cart" class="cart-link">
-    🛒 Cart
-    <!-- @if (cartStore.itemCount() > 0) { -->
-      <span class="cart-badge">{{ cartStore.itemCount() }}</span>
-    <!-- } -->
-  </a>
+  <div class="right-section">
+    <a routerLink="/cart" class="cart-link">
+      🛒 Cart
+      <!-- @if (cartStore.itemCount() > 0) { -->
+        <span class="cart-badge">{{ cartStore.itemCount() }}</span>
+      <!-- } -->
+    </a>
 
-  @if (authStore.isLoggedIn()) {
-    <div class="user-menu">
-      <span>{{ authStore.currentUser()?.name }}</span>
-      <button (click)="onLogout()">Logout</button>
-    </div>
-  } @else {
-    <a routerLink="/login" class="login-link">Login</a>
-  }
+    @if (authStore.isLoggedIn()) {
+      <div class="user-menu">
+        <span>{{ authStore.currentUser()?.name }}</span>
+        <button (click)="onLogout()">Logout</button>
+      </div>
+    } @else {
+      <a routerLink="/login" class="login-link">Login</a>
+    }
+  </div>  
 </header>

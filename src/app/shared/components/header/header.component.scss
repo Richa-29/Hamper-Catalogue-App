@@ -116,3 +116,9 @@
     color: var(--color-primary);
   }
 }
+
+.right-section {
+  display: flex;
+  align-items: center;
+  gap: var(--space-lg);
+}
